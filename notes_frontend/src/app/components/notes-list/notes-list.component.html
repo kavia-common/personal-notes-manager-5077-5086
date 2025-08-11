@@ -1,0 +1,21 @@
+<div class="notes-list-main">
+  <div *ngIf="!notes?.length" class="empty">
+    No notes to show.
+  </div>
+  <div class="notes-list">
+    <div class="note-card" *ngFor="let note of notes">
+      <div class="top-row">
+        <div class="note-title">{{ note.title }}</div>
+      </div>
+      <div class="note-meta">
+        <span class="note-category">{{ note.category }}</span>
+        <span class="note-date">{{ formatDate(note.updated) }}</span>
+      </div>
+      <div class="note-content">{{ getShort(note.content) }}</div>
+      <div class="note-actions">
+        <button (click)="edit.emit(note)">Edit</button>
+        <button (click)="delete.emit(note.id!)" class="danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

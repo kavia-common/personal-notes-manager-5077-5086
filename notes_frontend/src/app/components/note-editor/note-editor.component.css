@@ -1,0 +1,128 @@
+.overlay {
+  position: fixed;
+  z-index: 1002;
+  inset: 0;
+  background: rgba(25, 118, 210, 0.11);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: overlayIn .19s cubic-bezier(.36,2,.49,.86);
+}
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1;}
+}
+.editor-modal {
+  background: #fff;
+  min-width: 320px;
+  max-width: 98vw;
+  width: 420px;
+  border-radius: 13px;
+  box-shadow: 0 8px 40px 0 rgba(25,118,210,0.23);
+  padding: 1.7rem 1.5rem 1.2rem 1.5rem;
+  animation: modalIn .18s cubic-bezier(.11,.49,.30,1.1);
+  display: flex;
+  flex-direction: column;
+}
+@keyframes modalIn {
+  from { transform: translateY(120px) scale(.95); opacity: 0;}
+  to { transform: none; opacity: 1;}
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.editor-modal h2 {
+  color: #1976d2;
+  margin: 0 0 0.1em 0;
+  font-size: 1.23rem;
+  font-weight: bold;
+}
+.close-btn {
+  font-size: 2rem;
+  color: #424242;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  margin-left: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+}
+label {
+  color: #1976d2;
+  font-size: 1em;
+  font-family: inherit;
+  font-weight: 500;
+  margin-bottom: 0.32em;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+select,
+textarea {
+  margin-top: 5px;
+  font-family: inherit;
+  font-size: 1.06em;
+  border: 1.5px solid #d4dce6;
+  border-radius: 5px;
+  padding: 7px 9px;
+  background: #f8fbff;
+  outline: none;
+  transition: border 0.2s;
+  resize: none;
+}
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #1976d2;
+}
+
+textarea {
+  background: #f8fbff;
+  resize: vertical;
+}
+
+.editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.1em;
+  margin-top: .7em;
+}
+
+.save-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: 500;
+  padding: 6px 23px;
+  cursor: pointer;
+  transition: background .14s;
+}
+.save-btn:disabled {
+  background: #bbcaf0;
+}
+.save-btn:hover:enabled {
+  background: #155ab6;
+}
+.cancel-btn {
+  background: #ffca28;
+  color: #504300;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: 400;
+  padding: 6px 13px;
+  cursor: pointer;
+  transition: background .11s;
+}
+.cancel-btn:hover {background: #f5b800;}

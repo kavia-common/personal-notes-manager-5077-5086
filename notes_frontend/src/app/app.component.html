@@ -1,3 +1,37 @@
-<div class="container">
-  <h1>{{ title }}</h1>
+<div class="main-app-layout">
+  <aside class="sidebar">
+    <app-sidebar
+      [categories]="categories()"
+      [selectedCategory]="selectedCategory()"
+      (selectCategory)="notesService.setCategory($event)"
+      (addCategory)="notesService.addCategory($event)">
+    </app-sidebar>
+  </aside>
+  <main class="content">
+    <div class="header-bar">
+      <h1 class="brand-title">{{ title }}</h1>
+      <div class="header-controls">
+        <input placeholder="Search notes"
+               [(ngModel)]="searchTermSignal"
+               (input)="notesService.setSearchTerm(searchTermSignal)" />
+        <button class="mat-flat-button" (click)="openEditor()">+ New Note</button>
+      </div>
+    </div>
+    <app-notes-list
+      [notes]="notes()"
+      (edit)="openEditor($event)"
+      (delete)="deleteNote($event)">
+    </app-notes-list>
+  </main>
+  <app-note-editor
+    *ngIf="showEditor()"
+    [note]="editingNote()"
+    [categories]="categories()"
+    (save)="saveNote($event)"
+    (close)="closeEditor()">
+  </app-note-editor>
+
+  <div *ngIf="snackbarMessage()" class="simple-snackbar">
+    {{ snackbarMessage() }}
+  </div>
 </div>

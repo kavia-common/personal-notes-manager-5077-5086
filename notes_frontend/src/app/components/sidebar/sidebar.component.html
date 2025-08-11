@@ -1,0 +1,19 @@
+<nav class="sidebar-menu">
+  <div class="side-header">Categories</div>
+  <ul class="cat-list">
+    <li
+      *ngFor="let cat of categories"
+      [class.selected]="selectedCategory === cat.id"
+      (click)="selectCategory.emit(cat.id)">
+      <span>{{cat.name}}</span>
+    </li>
+  </ul>
+  <div class="add-category">
+    <input
+      type="text"
+      placeholder="New category"
+      [(ngModel)]="newCategoryName"
+      (keydown.enter)="onAddCategory()" />
+    <button (click)="onAddCategory()">Add</button>
+  </div>
+</nav>

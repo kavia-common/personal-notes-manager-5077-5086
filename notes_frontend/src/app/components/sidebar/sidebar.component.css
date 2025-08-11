@@ -1,0 +1,70 @@
+.sidebar-menu {
+  padding: 1.5rem 1rem;
+  min-height: 100vh;
+  background: #f6faff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.side-header {
+  font-weight: bold;
+  color: #1976d2;
+  font-size: 1.1rem;
+}
+
+.cat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cat-list li {
+  padding: 9px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #424242;
+  margin-bottom: 3px;
+  font-size: 1rem;
+}
+
+.cat-list li.selected {
+  font-weight: 700;
+  background: #e3f1fb;
+  color: #1976d2;
+}
+
+.add-category {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 1rem;
+}
+
+.add-category input {
+  flex: 1 1 0%;
+  border: 1.5px solid #d4dce6;
+  border-radius: 5px;
+  padding: 6px 7px;
+  font-size: 1rem;
+  background: #fff;
+  outline: none;
+  transition: border 0.2s;
+}
+.add-category input:focus {
+  border: 1.5px solid #1976d2;
+}
+
+.add-category button {
+  padding: 4px 13px;
+  border-radius: 4px;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .14s;
+}
+.add-category button:hover {
+  background: #155ab6;
+}
